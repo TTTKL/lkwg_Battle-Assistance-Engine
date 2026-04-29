@@ -1,0 +1,360 @@
+[5/371] 叶冕魔力猫: no new data
+[9/371] 烈火战神: no new data
+[13/371] 圣水守护: no new data
+[14/371] 鸭吉吉: no new data
+[15/371] 鸭吉吉国王: no new data
+[16/371] 板板壳: no new data
+[17/371] 咔咔壳: no new data
+[18/371] 水泡壳: no new data
+[22/371] 雪绒鸟: no new data
+[23/371] 冬羽雀: no new data
+[24/371] 岚鸟: no new data
+[25/371] 霜翼领主: no new data
+[29/371] 石肤蜥: no new data
+[30/371] 石刺蜥: no new data
+--- Saved at 30 (0 updated, 0 errors, 16 skipped) ---
+[31/371] 石冠王蜥: no new data
+[35/371] 迷嶂布莱克: no new data
+[40/371] 化蝶: no new data
+[42/371] 幻影荆棘: no new data
+[44/371] 燕尾獭: no new data
+[45/371] 卷胡巨獭: no new data
+[46/371] 矿晶虫: no new data
+[47/371] 晶石蜗: no new data
+[48/371] 钻石蜗: no new data
+[49/371] 奇丽草: no new data
+[50/371] 奇丽叶: no new data
+[51/371] 奇丽花: no new data
+[52/371] 奇丽果: no new data
+[53/371] 丢丢: no new data
+[54/371] 卡卡虫: no new data
+[55/371] 卡瓦重: no new data
+[56/371] 护主犬: no new data
+[57/371] 音速犬: no new data
+[58/371] 风暴战犬: no new data
+[59/371] 绿耳松鼠: no new data
+[60/371] 抱枕松鼠: no new data
+--- Saved at 60 (0 updated, 0 errors, 25 skipped) ---
+[61/371] 蹦床松鼠: no new data
+[62/371] 嘟嘟煲: no new data
+[63/371] 嘟嘟锅: no new data
+[64/371] 小灵面: no new data
+[65/371] 暗影灵面: no new data
+[66/371] 幽冥眼: no new data
+[67/371] 梦游: no new data
+[68/371] 梦悠悠: no new data
+[69/371] 兽花蕾: no new data
+[70/371] 伏地兽: no new data
+[71/371] 贪食鼹: no new data
+[72/371] 巨噬针鼹: no new data
+[73/371] 蹦蹦种子: no new data
+[74/371] 蹦蹦草: no new data
+[75/371] 蹦蹦花: no new data
+[76/371] 蹦蹦果: no new data
+[77/371] 电咩咩: no new data
+[78/371] 粉咩咩: no new data
+[79/371] 电球咩咩: no new data
+[80/371] 蒲公英: no new data
+[81/371] 蒲公英娃娃: no new data
+[82/371] 伊贝儿: no new data
+[83/371] 伊贝粉粉: no new data
+[84/371] 白发懒人: no new data
+[85/371] 动力猿: no new data
+[86/371] 瞌睡王: no new data
+[87/371] 海盔虫: no new data
+[88/371] 刺盔虫: no new data
+[89/371] 千棘盔: no new data
+[90/371] 千棘海针: no new data
+--- Saved at 90 (0 updated, 0 errors, 25 skipped) ---
+[91/371] 菊花梨: no new data
+[92/371] 小星光: no new data
+[93/371] 星光狮: no new data
+[94/371] 一窝蜂: no new data
+[95/371] 黄蜂后: no new data
+[96/371] 女王蜂: no new data
+[97/371] 花魁蜂后: no new data
+[98/371] 小夜: no new data
+[99/371] 紫夜: no new data
+[100/371] 朔夜伊芙: no new data
+[101/371] 乖乖鹄: no new data
+[102/371] 蓝珠天鹅: no new data
+[103/371] 翠顶夫人: no new data
+[104/371] 黑羽夫人: no new data
+[105/371] 锤头鹳: no new data
+[106/371] 绿草精灵: no new data
+[107/371] 魔草巫灵: no new data
+[108/371] 记忆石: no new data
+[109/371] 咔咔羽毛: no new data
+[110/371] 咔咔雀: no new data
+[111/371] 咔咔鸟: no new data
+[112/371] 小草虫: no new data
+[113/371] 草衣虫: no new data
+[114/371] 花衣蝶: no new data
+[115/371] 绿翼鸟: no new data
+[116/371] 魔翼鸟: no new data
+[117/371] 魔眷鸟: no new data
+[118/371] 阿米亚特: no new data
+[119/371] 阿米樱: no new data
+[120/371] 罗隐: no new data
+--- Saved at 120 (0 updated, 0 errors, 25 skipped) ---
+[121/371] 风铃鲨: no new data
+[122/371] 蓝蝶鲨: no new data
+[123/371] 彩蝶鲨: no new data
+[124/371] 神谕鲨: no new data
+[125/371] 石石: no new data
+[126/371] 巨灵石: no new data
+[127/371] 仪使者: no new data
+[128/371] 仪式之星: no new data
+[129/371] 仪式巨像: no new data
+[130/371] 祭礼巨像: no new data
+[131/371] 小独角兽: no new data
+[132/371] 白金独角兽: no new data
+[133/371] 彩虹独角兽: no new data
+[134/371] 旋叶虫: no new data
+[135/371] 蓬叶虫: no new data
+[136/371] 风滚暮虫: no new data
+[137/371] 小黑猫: no new data
+[138/371] 黑猫巫师: no new data
+[139/371] 黑猫密探: no new data
+[140/371] 忽幽狸: no new data
+[141/371] 影狸: no new data
+[142/371] 多多: no new data
+[143/371] 多啦多: traits:1, evo:3
+[144/371] 古啦多: traits:1, evo:3
+[145/371] 哭哭菇: traits:1, evo:3
+[146/371] 怖须菇: traits:1, evo:3
+[147/371] 怖哭菇: traits:1, evo:3
+[148/371] 恶魔狼: traits:1, evo:1
+[149/371] 恶魔狼王: traits:1
+[150/371] 小电企鹅: traits:1, evo:2
+--- Saved at 150 (8 updated, 0 errors, 25 skipped) ---
+[151/371] 电企鹅: traits:1, evo:2
+[152/371] 雪豆丁: traits:1, evo:3
+[153/371] 雪蛮人: traits:1, evo:3
+[154/371] 雪巨人: traits:1, evo:3
+[155/371] 呼呼猪: traits:1, evo:2
+[156/371] 獠牙猪: traits:1, evo:2
+[157/371] 雪娃娃: traits:1, evo:3
+[158/371] 冰封怨灵: traits:1, evo:3
+[159/371] 雪灵: traits:1, evo:3
+[160/371] 大耳帽兜: traits:1, evo:3
+[161/371] 帽兜娃娃: traits:1, evo:3
+[162/371] 雪影娃娃: traits:1, evo:3
+[163/371] 雪影冰灵: traits:1
+[164/371] 权杖-Ⅱ: traits:1, evo:2
+[165/371] 权杖-Ⅴ: traits:1, evo:2
+[166/371] 灵狐: traits:1, evo:3
+[167/371] 九尾狐: traits:1, evo:3
+[168/371] 尖嘴狐仙: traits:1, evo:3
+[169/371] 里奥: traits:1, evo:3
+[170/371] 灵羽勇士: traits:1, evo:3
+[171/371] 圣羽翼王: traits:1, evo:3
+[172/371] 松仔: traits:1, evo:3
+[173/371] 松叶羊: traits:1, evo:3
+[174/371] 针叶巡林: traits:1, evo:3
+[175/371] 小勇狮: traits:1, evo:3
+[176/371] 炽焰狮: traits:1, evo:3
+[177/371] 炽心勇狮: traits:1, evo:3
+[178/371] 水滴蛇: traits:1, evo:3
+[179/371] 水蛇锁: traits:1, evo:3
+[180/371] 游蛇魔使: traits:1, evo:3
+--- Saved at 180 (38 updated, 0 errors, 25 skipped) ---
+[181/371] 公平鸽: traits:1, evo:1
+[182/371] 小怂猫: traits:1, evo:2
+[183/371] 怒目怂猫: traits:1, evo:2
+[184/371] 小狮鹫: no new data
+[185/371] 神圣狮鹫: no new data
+[186/371] 皇家狮鹫: no new data
+[187/371] 圆眼蜘蛛: traits:1, evo:3
+[188/371] 尖角蜘蛛: traits:1, evo:3
+[189/371] 芋香巨角蛛: traits:1, evo:3
+[190/371] 波波螺: traits:1, evo:3
+[191/371] 消波螺: traits:1, evo:3
+[192/371] 嗜波螺: traits:1, evo:3
+[193/371] 菇菇丁: traits:1, evo:3
+[194/371] 多菇丁: traits:1, evo:3
+[195/371] 九幽菇: traits:1, evo:3
+[196/371] 斑斑: traits:1, evo:2
+[197/371] 斑枭: traits:1, evo:2
+[198/371] 草头鸭: traits:1, evo:2
+[199/371] 卷毛鸭: traits:1, evo:2
+[200/371] 海豹战士: traits:1, evo:2
+[201/371] 海豹船长: traits:1, evo:2
+[202/371] 号儿鱼: traits:1, evo:2
+[203/371] 圆号鱼: traits:1, evo:2
+[204/371] 甜田螺: traits:1, evo:3
+[205/371] 壳乙螺: traits:1, evo:3
+[206/371] 卡洛儿: traits:1, evo:3
+[207/371] 棋棋: no new data
+[208/371] 棋骑士: no new data
+[209/371] 棋齐垒: no new data
+[210/371] 棋祈督: no new data
+--- Saved at 210 (61 updated, 0 errors, 25 skipped) ---
+[211/371] 棋绮后: no new data
+[212/371] 棋契陛下: traits:1
+[213/371] 奔波鼠: traits:1, evo:2
+[214/371] 流浪鼠: traits:1, evo:2
+[215/371] 呆小路: traits:1, evo:3
+[216/371] 舞动路路: traits:1, evo:3
+[217/371] 白发路路: traits:1, evo:3
+[218/371] 逗逗: traits:1, evo:3
+[219/371] 气球猫: traits:1, evo:3
+[220/371] 梦想三三: traits:1, evo:3
+[221/371] 奇梦咪: traits:1
+[222/371] 花怨鳗: traits:1, evo:2
+[223/371] 鳗尾兽: traits:1, evo:2
+[224/371] 伊雷龙: traits:1, evo:2
+[225/371] 伊兰龙: traits:1
+[226/371] 伊兰亚龙: traits:1, evo:2
+[227/371] 拉特: traits:1, evo:2
+[228/371] 酷拉: traits:1, evo:2
+[229/371] 闪电环: traits:1, evo:3
+[230/371] 刺电环: traits:1, evo:3
+[231/371] 荆棘电环: traits:1, evo:3
+[232/371] 小箱怪: traits:1, evo:2
+[233/371] 迷迷箱怪: traits:1, evo:2
+[234/371] 古钟蛇: traits:1
+[235/371] 寒音蛇: traits:1
+[236/371] 矮脚爬爬: traits:1, evo:2
+[237/371] 恶魔红钻: traits:1, evo:2
+[238/371] 火尾瓦特: traits:1, evo:3
+[239/371] 火尾战士: traits:1, evo:3
+[240/371] 烈火守护: traits:1, evo:3
+--- Saved at 240 (90 updated, 0 errors, 25 skipped) ---
+[241/371] 里拉鳐: traits:1, evo:1
+[242/371] 海枝枝: no new data
+[243/371] 多西: traits:1, evo:3
+[244/371] 库多西: traits:1, evo:3
+[245/371] 波多西: traits:1, evo:3
+[246/371] 小翼龙: traits:1, evo:2
+[247/371] 翼龙: traits:1, evo:2
+[248/371] 电动长颈鹿: traits:1, evo:3
+[249/371] 奔乐鹿: traits:1, evo:3
+[250/371] 爵士鹿: traits:1, evo:3
+[251/371] 波普鹿: traits:1
+[252/371] 缇塔: traits:1, evo:2
+[253/371] 声波缇塔: traits:1, evo:2
+[254/371] 小鹬: traits:1, evo:3
+[255/371] 鄙目鹬: traits:1, evo:3
+[256/371] 高脚鹬: traits:1, evo:3
+[257/371] 脆筒甜甜: traits:1, evo:3
+[258/371] 香草甜甜: traits:1, evo:3
+[259/371] 圣代甜甜: traits:1, evo:3
+[260/371] 刺轮砣: no new data
+[261/371] 月亮砣: no new data
+[262/371] 豆丁鱼: traits:1, evo:3
+[263/371] 快鳍鱼: traits:1, evo:3
+[264/371] 龙鱼: traits:1, evo:3
+[265/371] 胆小鳗鱼: traits:1, evo:2
+[266/371] 闪电鳗鱼: traits:1, evo:2
+[267/371] 翡翠水母: traits:1, evo:2
+[268/371] 琉璃水母: traits:1, evo:2
+[269/371] 裘洛: traits:1, evo:3
+[270/371] 裘力: traits:1, evo:3
+--- Saved at 270 (117 updated, 0 errors, 25 skipped) ---
+[271/371] 裘卡: traits:1, evo:3
+[272/371] 可爱猿: traits:1, evo:3
+[273/371] 炽热猿: traits:1, evo:3
+[274/371] 火焰猿: traits:1, evo:3
+[275/371] 布鲁斯: traits:1, evo:3
+[276/371] 雪顶布鲁斯: traits:1, evo:3
+[277/371] 冰钻布鲁斯: traits:1, evo:3
+[278/371] 治愈兔: traits:1, evo:3
+[279/371] 红丝绒: traits:1, evo:3
+[280/371] 红绒十字: traits:1, evo:3
+[281/371] 乌达: no new data
+[282/371] 迷你乌: no new data
+[283/371] 乌拉塔: no new data
+[284/371] 螺旋帕帕: traits:1, evo:2
+[285/371] 帕帕斯卡: traits:1, evo:2
+[286/371] 机械方方: traits:1, evo:3
+[287/371] 多彩方方: traits:1, evo:3
+[288/371] 立方人: traits:1, evo:3
+[289/371] 可立鸡: traits:1, evo:3
+[290/371] 晕晕鸡: traits:1, evo:3
+[291/371] 绅士鸡: traits:1, evo:3
+[292/371] 武者鸡: traits:1, evo:3
+[293/371] 优优: traits:1, evo:2
+[294/371] 绒光优优: traits:1, evo:2
+[295/371] 噼啪鸟: traits:1, evo:1
+[296/371] 深蓝鲸: traits:1, evo:1
+[297/371] 格兰种子: traits:1, evo:3
+[298/371] 格兰花: traits:1, evo:3
+[299/371] 格兰球: traits:1, evo:3
+[300/371] 地鼠: no new data
+--- Saved at 300 (143 updated, 0 errors, 25 skipped) ---
+[301/371] 遁鼠: no new data
+[302/371] 遁地鼠: no new data
+[303/371] 墨鱿士: traits:1, evo:3
+[304/371] 混乱鱿彩: traits:1, evo:3
+[305/371] 秩序鱿墨: traits:1, evo:3
+[306/371] 小甲虫: traits:1, evo:2
+[307/371] 铠甲虫: traits:1, evo:2
+[308/371] 圣剑侍从: traits:1, evo:2
+[309/371] 圣剑-X: traits:1, evo:2
+[310/371] 圣剑骑士: traits:1
+[311/371] 吸泥鸥: traits:1, evo:2
+[312/371] 泥吼牙: traits:1, evo:2
+[313/371] 大头骨龙: traits:1, evo:2
+[314/371] 寂灭骨龙: traits:1, evo:2
+[315/371] 厉毒小萝: traits:1, evo:2
+[316/371] 厉毒修萝: traits:1, evo:2
+[317/371] 小帕尔: traits:1, evo:3
+[318/371] 帕尔萨斯: traits:1, evo:3
+[319/371] 龙息帕尔: traits:1, evo:3
+[320/371] 毛头小蛛: traits:1, evo:2
+[321/371] 捕尘长绒: traits:1, evo:2
+[322/371] 食尘短绒: traits:1, evo:2
+[323/371] 画精灵: traits:1, evo:3
+[324/371] 画像守护: traits:1, evo:3
+[325/371] 画间法师手: traits:1, evo:3
+[326/371] 画间沉铁兽: traits:1, evo:3
+[327/371] 书魔虫: traits:1, evo:3
+[328/371] 书卷守护: traits:1, evo:3
+[329/371] 古卷执政官: traits:1, evo:3
+[330/371] 古卷匣魔像: traits:1, evo:3
+--- Saved at 330 (171 updated, 0 errors, 25 skipped) ---
+[331/371] 绒绒: traits:1, evo:3
+[332/371] 小绒茧: traits:1, evo:3
+[333/371] 绒仙子: traits:1, evo:3
+[334/371] 犀角鸟: traits:1, evo:3
+[335/371] 光纤兽: traits:1, evo:3
+[336/371] 疾光千兽: traits:1, evo:3
+[337/371] 果冻: traits:1, evo:2
+[338/371] 抹茶布丁: traits:1, evo:2
+[339/371] 椰浆布丁: traits:1, evo:2
+[340/371] 熔岩布丁: traits:1, evo:2
+[341/371] 星尘虫: traits:1, evo:3
+[342/371] 落星虫: traits:1, evo:3
+[343/371] 陨星虫: traits:1, evo:3
+[344/371] 双灯鱼: traits:1, evo:2
+[345/371] 利灯鱼: traits:1, evo:2
+[346/371] 月牙雪熊: traits:1, evo:1
+[347/371] 嗜光嗡嗡: traits:1, evo:2
+[348/371] 窃光蚊: traits:1, evo:2
+[349/371] 柴渣虫: traits:1, evo:2
+[350/371] 燃薪虫: traits:1, evo:2
+[351/371] 空空颅: traits:1, evo:3
+[352/371] 夜宿颅: traits:1, evo:3
+[353/371] 夜枭: traits:1, evo:3
+[354/371] 粉粉星: traits:1, evo:2
+[355/371] 小皮球: traits:1, evo:2
+[356/371] 贝瑟: traits:1, evo:3
+[357/371] 贝加尔: traits:1, evo:3
+[358/371] 贝古斯: traits:1, evo:3
+[359/371] 粉星仔: traits:1, evo:2
+[360/371] 粉耳星兔: traits:1, evo:2
+--- Saved at 360 (201 updated, 0 errors, 25 skipped) ---
+[361/371] 落陨星兔: traits:1, evo:2
+[362/371] 布瓜蝌: traits:1, evo:2
+[363/371] 上岸蛙: traits:1, evo:2
+[364/371] 火红尾: traits:1, evo:2
+[365/371] 雅丹鬃: traits:1, evo:2
+[366/371] 春团: traits:1, evo:3
+[367/371] 春兔: traits:1, evo:3
+[368/371] 春花兔: traits:1, evo:3
+[369/371] 幽星光: traits:1, evo:3
+[370/371] 曜星光: traits:1, evo:3
+[371/371] 暮星辰: traits:1, evo:3
+
+Done! 212 updated, 0 errors, 25 skipped out of 371

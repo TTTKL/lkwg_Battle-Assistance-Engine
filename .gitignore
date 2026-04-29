@@ -1,0 +1,32 @@
+# Python cache/build output
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+build/
+dist/
+*.egg-info/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Local runtime files
+*.log
+*.pid
+*.tmp
+tmp_*
+
+# Local environment and OS/editor files
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db
+desktop.ini
+*.lnk
+
+# Frontend dependency folders, if created locally
+node_modules/

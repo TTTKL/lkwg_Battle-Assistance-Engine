@@ -1,0 +1,2 @@
+解压后把claude_workspace放在E盘根目录，点快捷方式就能启动。打开localhost就能显示
+打不开查查flusk版本，环境依赖只有这个+py

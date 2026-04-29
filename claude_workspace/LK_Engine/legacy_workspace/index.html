@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>洛克王国 - 打击面分析器</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Microsoft YaHei', 'PingFang SC', sans-serif;
+            background: linear-gradient(135deg, #0f0c29 0%, #1a1a3e 40%, #24243e 100%);
+            min-height: 100vh;
+            color: #e0e0e0;
+            padding: 20px;
+        }
+        .container { max-width: 1440px; margin: 0 auto; }
+        h1 {
+            text-align: center;
+            font-size: 2.2em;
+            margin-bottom: 6px;
+            background: linear-gradient(90deg, #ffd700, #ff8c00, #ff6347, #ffd700);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 3s linear infinite;
+        }
+        @keyframes shimmer { to { background-position: 200% center; } }
+        .subtitle {
+            text-align: center;
+            color: #7788aa;
+            font-size: 0.88em;
+            margin-bottom: 28px;
+        }
+        /* Input Panel */
+        .input-panel {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 24px 28px;
+            margin-bottom: 28px;
+            backdrop-filter: blur(12px);
+        }
+        .my-types-display {
+            text-align: center;
+            margin-top: 16px;
+            padding: 12px;
+            border-radius: 12px;
+            background: rgba(255,215,0,0.05);
+            border: 1px dashed rgba(255,215,0,0.2);
+            font-size: 0.95em;
+            color: #aab;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s;
+        }
+        .my-types-display.active {
+            color: #dde;
+            background: rgba(255,215,0,0.08);
+            border-color: rgba(255,215,0,0.3);
+        }
+        .input-row {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            align-items: flex-end;
+        }
+        .input-group { flex: 1; min-width: 260px; }
+        .input-group label {
+            display: block;
+            font-size: 0.92em;
+            margin-bottom: 8px;
+            color: #99aabb;
+            font-weight: bold;
+        }
+        .select-wrap { position: relative; }
+        .select-wrap select {
+            width: 100%;
+            padding: 11px 40px 11px 16px;
+            border: 2px solid rgba(255,255,255,0.12);
+            border-radius: 10px;
+            background: rgba(0,0,0,0.35);
+            color: #e0e0e0;
+            font-size: 1em;
+            font-family: inherit;
+            appearance: none;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+        .select-wrap select:focus { outline: none; border-color: #ffd700; }
+        .select-wrap select:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+        .select-wrap::after {
+            content: '▾';
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #778;
+            font-size: 0.75em;
+            pointer-events: none;
+        }
+        .btn-calc {
+            padding: 11px 32px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #ffd700, #ff8c00);
+            color: #1a1a2e;
+            font-size: 1em;
+            font-weight: bold;
+            font-family: inherit;
+            cursor: pointer;
+            transition: transform 0.15s, box-shadow 0.15s;
+            white-space: nowrap;
+        }
+        .btn-calc:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(255, 165, 0, 0.25);
+        }
+        .btn-calc:active { transform: translateY(0); }
+        /* Type Badge */
+        .type-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+            padding: 2px 9px;
+            border-radius: 10px;
+            font-size: 0.78em;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+            white-space: nowrap;
+            line-height: 1.6;
+        }
+        .type-badge-lg {
+            padding: 4px 14px;
+            font-size: 0.95em;
+            border-radius: 14px;
+        }
+        /* Results */
+        .results-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        @media (max-width: 960px) {
+            .results-grid { grid-template-columns: 1fr; }
+        }
+        .result-panel {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 20px;
+            backdrop-filter: blur(8px);
+        }
+        .result-panel h2 {
+            font-size: 1.15em;
+            margin-bottom: 14px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .offense-title { color: #55ff88; }
+        .defense-title { color: #ff6b6b; }
+        .target-row {
+            display: flex;
+            align-items: center;
+            padding: 8px 10px;
+            border-radius: 8px;
+            margin-bottom: 4px;
+            transition: background 0.15s;
+        }
+        .target-row:hover { background: rgba(255,255,255,0.04); }
+        .target-row:nth-child(odd) { background: rgba(255,255,255,0.015); }
+        .target-row:nth-child(odd):hover { background: rgba(255,255,255,0.05); }
+        .target-name {
+            width: 68px;
+            font-weight: bold;
+            font-size: 0.92em;
+            flex-shrink: 0;
+        }
+        .target-details {
+            flex: 1;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3px 8px;
+            font-size: 0.78em;
+            color: #8899aa;
+            align-items: center;
+        }
+        .atk-detail {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .atk-detail .arrow {
+            color: #556;
+            font-size: 1.1em;
+        }
+        .score-green {
+            color: #44ff66;
+            font-weight: bold;
+            font-size: 1em;
+            min-width: 38px;
+            text-align: right;
+            flex-shrink: 0;
+        }
+        .score-red {
+            color: #ff5555;
+            font-weight: bold;
+            font-size: 1em;
+            min-width: 38px;
+            text-align: right;
+            flex-shrink: 0;
+        }
+        .eff-4x { color: #ff3333; font-weight: bold; }
+        .eff-2x { color: #ff9944; font-weight: bold; }
+        .eff-1x { color: #aaa; }
+        .eff-05x { color: #55aadd; }
+        .eff-025x { color: #33bbdd; }
+        .eff-0x { color: #666; }
+        .summary-bar {
+            margin-top: 14px;
+            padding: 12px 16px;
+            border-radius: 10px;
+            font-weight: bold;
+            text-align: center;
+            font-size: 1.05em;
+        }
+        .summary-green {
+            background: rgba(68,255,102,0.08);
+            border: 1px solid rgba(68,255,102,0.15);
+            color: #66ff88;
+        }
+        .summary-red {
+            background: rgba(255,85,85,0.08);
+            border: 1px solid rgba(255,85,85,0.15);
+            color: #ff6b6b;
+        }
+        .placeholder-text {
+            text-align: center;
+            color: #445566;
+            padding: 36px 20px;
+            font-size: 0.92em;
+        }
+        /* Legend */
+        .legend {
+            margin-top: 24px;
+            padding: 16px 20px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            font-size: 0.82em;
+            color: #7788aa;
+        }
+        .legend h3 {
+            color: #99aabb;
+            margin-bottom: 8px;
+            font-size: 1em;
+        }
+        .legend-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 24px;
+        }
+        .legend-item { display: flex; align-items: center; gap: 6px; }
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 3px; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>⚔️ 洛克王国 · 打击面分析器</h1>
+    <p class="subtitle">选择精灵属性，分析攻击打击面与防御弱点 | 基于洛克王国：世界 属性克制数据</p>
+
+    <div class="input-panel">
+        <div class="input-row">
+            <div class="input-group">
+                <label>🐾 精灵第一属性 <span style="color:#ff6b6b">*</span></label>
+                <div class="select-wrap">
+                    <select id="type1" onchange="onType1Change()">
+                        <option value="">-- 请选择 --</option>
+                    </select>
+                </div>
+            </div>
+            <div class="input-group">
+                <label>🐾 精灵第二属性（可选）</label>
+                <div class="select-wrap">
+                    <select id="type2">
+                        <option value="">无（单属性）</option>
+                    </select>
+                </div>
+            </div>
+            <button class="btn-calc" onclick="calculate()">🔍 计算打击面</button>
+        </div>
+        <div class="my-types-display" id="myTypesDisplay">
+            <span>选择属性后此处显示当前精灵的属性</span>
+        </div>
+    </div>
+
+    <div class="results-grid">
+        <div class="result-panel">
+            <h2 class="offense-title">⚔️ 我的打击面（攻击端）</h2>
+            <div class="placeholder-text" id="offPH">← 请选择属性后点击"计算打击面"</div>
+            <div id="offRes" style="display:none"></div>
+        </div>
+        <div class="result-panel">
+            <h2 class="defense-title">🛡️ 我的弱点（防御端）</h2>
+            <div class="placeholder-text" id="defPH">← 请选择属性后点击"计算打击面"</div>
+            <div id="defRes" style="display:none"></div>
+        </div>
+    </div>
+
+    <div class="legend">
+        <h3>📋 评分规则</h3>
+        <div class="legend-items">
+            <div class="legend-item"><span class="eff-4x">×4 双重克制</span> → 3分</div>
+            <div class="legend-item"><span class="eff-2x">×2 克制</span> → 2分</div>
+            <div class="legend-item"><span class="eff-1x">×1 正常</span> → 1分</div>
+            <div class="legend-item"><span class="eff-05x">×0.5 抵抗</span> → 0.5分</div>
+            <div class="legend-item"><span class="eff-025x">×0.25 双重抵抗</span> → 0分</div>
+            <div class="legend-item"><span class="eff-0x">×0 无效</span> → 0分</div>
+        </div>
+    </div>
+</div>
+
+<script>
+// ======================== TYPE DATA ========================
+const TYPES = [
+    { name:'普通', icon:'⭐', color:'#A8A878' },
+    { name:'火',   icon:'🔥', color:'#F08030' },
+    { name:'水',   icon:'💧', color:'#6890F0' },
+    { name:'草',   icon:'🌿', color:'#78C850' },
+    { name:'冰',   icon:'❄️', color:'#98D8D8' },
+    { name:'电',   icon:'⚡', color:'#F8D030' },
+    { name:'土',   icon:'🏔️', color:'#E0C068' },
+    { name:'石',   icon:'🪨', color:'#B8A038' },
+    { name:'翼',   icon:'🦅', color:'#A890F0' },
+    { name:'毒',   icon:'☠️', color:'#A040A0' },
+    { name:'萌',   icon:'🎀', color:'#F85888' },
+    { name:'幽灵', icon:'👻', color:'#705898' },
+    { name:'机械', icon:'⚙️', color:'#B8B8D0' },
+    { name:'龙',   icon:'🐉', color:'#7038F8' },
+    { name:'恶',   icon:'🌑', color:'#705848' },
+    { name:'武',   icon:'👊', color:'#C03028' },
+    { name:'光',   icon:'✨', color:'#D0D070' },
+];
+const TN = TYPES.map(t => t.name);
+
+// ======================== TYPE CHART ========================
+// C[attacker][defender] = multiplier
+// Order: 普通 火 水 草 冰 电 土 石 翼 毒 萌 幽灵 机械 龙 恶 武 光
+const C = {
+    '普通': [1,1,1,1,1,1,1,0.5,1,1,1,0,0.5,1,1,1,1],
+    '火':   [1,0.5,0.5,2,2,1,1,2,0.5,1,1,1,2,0.5,1,1,1],
+    '水':   [1,2,0.5,0.5,1,1,2,2,1,1,1,1,1,0.5,1,1,1],
+    '草':   [1,0.5,2,0.5,1,1,2,2,0.5,0.5,1,1,0.5,0.5,1,1,1],
+    '冰':   [1,0.5,0.5,2,0.5,1,2,1,2,1,1,1,0.5,2,1,1,1],
+    '电':   [1,1,2,0.5,1,0.5,0,1,2,1,1,1,1,0.5,1,1,1],
+    '土':   [1,2,1,0.5,1,2,1,0.5,0,2,1,1,2,1,1,1,1],
+    '石':   [1,2,1,1,2,1,0.5,1,2,1,1,1,0.5,1,1,0.5,1],
+    '翼':   [1,1,1,2,1,0.5,1,0.5,1,1,1,1,0.5,1,1,2,1],
+    '毒':   [1,1,1,2,1,1,0.5,0.5,1,0.5,1,1,0,1,1,1,1],
+    '萌':   [1,0.5,1,1,1,1,1,1,1,2,0.5,1,1,2,0,1,1],
+    '幽灵': [0,1,1,1,1,1,1,1,1,1,2,2,1,1,0.5,1,1],
+    '机械': [1,0.5,0.5,0.5,0.5,1,1,2,1,1,1,1,0.5,0.5,1,0.5,1],
+    '龙':   [1,1,1,1,1,1,1,1,1,1,1,1,1,2,1,1,1],
+    '恶':   [1,1,1,1,1,1,1,1,1,1,2,2,1,1,0.5,0.5,1],
+    '武':   [2,1,1,1,2,1,1,2,0.5,0.5,0.5,0,2,1,2,0.5,1],
+    '光':   [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0.5],
+};
+
+// ======================== HELPERS ========================
+function tc(name) { return (TYPES.find(x => x.name === name) || {}).color || '#888'; }
+function ti(name) { return (TYPES.find(x => x.name === name) || {}).icon || '?'; }
+function badge(name, lg) {
+    const cls = lg ? 'type-badge type-badge-lg' : 'type-badge';
+    return `<span class="${cls}" style="background:${tc(name)}">${ti(name)}${name}</span>`;
+}
+function eff(m) {
+    if (m === 0)    return '<span class="eff-0x">×0 无效</span>';
+    if (m === 0.25) return '<span class="eff-025x">×0.25</span>';
+    if (m === 0.5)  return '<span class="eff-05x">×0.5</span>';
+    if (m === 1)    return '';
+    if (m === 2)    return '<span class="eff-2x">×2</span>';
+    if (m >= 4)     return '<span class="eff-4x">×4</span>';
+    return `<span>×${m}</span>`;
+}
+function scoreColor(s, isOff) {
+    if (isOff) return `<span class="score-green">${s.toFixed(1)}</span>`;
+    return `<span class="score-red">${s.toFixed(1)}</span>`;
+}
+function calcScore(m) {
+    if (m >= 4) return 3;
+    if (m >= 2) return 2;
+    if (m === 1) return 1;
+    if (m === 0.5) return 0.5;
+    return 0;
+}
+
+// ======================== INIT ========================
+function initSelects() {
+    const s1 = document.getElementById('type1');
+    const s2 = document.getElementById('type2');
+    TYPES.forEach(t => {
+        s1.appendChild(new Option(`${t.icon} ${t.name}`, t.name));
+        s2.appendChild(new Option(`${t.icon} ${t.name}`, t.name));
+    });
+}
+
+function onType1Change() {
+    const v = document.getElementById('type1').value;
+    const s2 = document.getElementById('type2');
+    Array.from(s2.options).forEach(o => {
+        o.disabled = !!o.value && o.value === v;
+    });
+    if (s2.value === v) s2.value = '';
+    updateDisplay();
+}
+
+function updateDisplay() {
+    const el = document.getElementById('myTypesDisplay');
+    const t1 = document.getElementById('type1').value;
+    const t2 = document.getElementById('type2').value;
+    if (!t1) {
+        el.innerHTML = '<span>选择属性后此处显示当前精灵的属性</span>';
+        el.classList.remove('active');
+    } else {
+        el.innerHTML = `我的精灵属性：${badge(t1, true)}${t2 ? ' + ' + badge(t2, true) : ''}`;
+        el.classList.add('active');
+    }
+}
+
+// ======================== CALCULATE ========================
+function calculate() {
+    const t1 = document.getElementById('type1').value;
+    const t2 = document.getElementById('type2').value || null;
+    if (!t1) { alert('请选择第一属性！'); return; }
+    renderOffense(t1, t2);
+    renderDefense(t1, t2);
+}
+
+function renderOffense(t1, t2) {
+    const box = document.getElementById('offRes');
+    document.getElementById('offPH').style.display = 'none';
+    box.style.display = 'block';
+
+    const atkTypes = t2 ? [t1, t2] : [t1];
+    const rows = [];
+    let totalScore = 0;
+
+    for (const def of TN) {
+        // For each of my attack types, what multiplier vs this defender?
+        const parts = [];
+        let bestScore = 0;
+
+        for (const atk of atkTypes) {
+            const m = C[atk][TN.indexOf(def)];
+            const s = calcScore(m);
+            if (s > bestScore) bestScore = s;
+            parts.push({ atk, m });
+        }
+
+        totalScore += bestScore;
+        rows.push({ def, score: bestScore, parts });
+    }
+
+    // Sort desc
+    rows.sort((a, b) => b.score - a.score);
+
+    let html = '';
+    for (const r of rows) {
+        let detail = '';
+        if (r.parts.length === 1) {
+            const { atk, m } = r.parts[0];
+            const effStr = eff(m);
+            detail = effStr
+                ? `${badge(atk)} <span class="arrow">→</span> ${badge(r.def)} ${effStr}`
+                : `${badge(atk)} <span class="arrow">→</span> ${badge(r.def)} <span class="eff-1x">×1 正常</span>`;
+        } else {
+            detail = r.parts.map(({ atk, m }) => {
+                const effStr = eff(m) || '<span class="eff-1x">×1</span>';
+                return `${badge(atk)} <span class="arrow">→</span> ${badge(r.def)} ${effStr}`;
+            }).join('&nbsp;&nbsp;|&nbsp;&nbsp;');
+        }
+
+        html += `<div class="target-row">
+            <div class="target-name">${badge(r.def)}</div>
+            <div class="target-details">${detail}</div>
+            ${scoreColor(r.score, true)}
+        </div>`;
+    }
+
+    html += `<div class="summary-bar summary-green">📊 打击面总评分：${totalScore.toFixed(1)} 分</div>`;
+    box.innerHTML = html;
+}
+
+function renderDefense(t1, t2) {
+    const box = document.getElementById('defRes');
+    document.getElementById('defPH').style.display = 'none';
+    box.style.display = 'block';
+
+    const rows = [];
+    let totalScore = 0;
+
+    for (const atk of TN) {
+        const m1 = C[atk][TN.indexOf(t1)];
+        const m2 = t2 ? C[atk][TN.indexOf(t2)] : 1;
+        const total = m1 * m2;
+        const score = calcScore(total);
+        totalScore += score;
+        rows.push({ atk, m1, m2, total, score });
+    }
+
+    // Sort by danger desc
+    rows.sort((a, b) => b.score - a.score || b.total - a.total);
+
+    let html = '';
+    for (const r of rows) {
+        const p1 = `${badge(r.atk)} <span class="arrow">→</span> ${badge(t1)} ${eff(r.m1)}`;
+        const p2 = t2 ? `&nbsp;|&nbsp; ${badge(r.atk)} <span class="arrow">→</span> ${badge(t2)} ${eff(r.m2)}` : '';
+        const totalStr = r.total === 0 ? '<span class="eff-0x">→ ×0 无效</span>'
+            : r.total === 0.25 ? '<span class="eff-025x">→ ×0.25 双重抵抗</span>'
+            : r.total === 0.5 ? '<span class="eff-05x">→ ×0.5 抵抗</span>'
+            : r.total === 1 ? '<span class="eff-1x">→ ×1 正常</span>'
+            : r.total === 2 ? '<span class="eff-2x">→ ×2 克制</span>'
+            : `<span class="eff-4x">→ ×${r.total} 双重克制</span>`;
+
+        html += `<div class="target-row">
+            <div class="target-name">${badge(r.atk)}</div>
+            <div class="target-details">${p1}${p2} <strong>${totalStr}</strong></div>
+            ${scoreColor(r.score, false)}
+        </div>`;
+    }
+
+    html += `<div class="summary-bar summary-red">⚠️ 弱点总评分：${totalScore.toFixed(1)} 分（越高越危险）</div>`;
+    box.innerHTML = html;
+}
+
+// ======================== BOOT ========================
+initSelects();
+</script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Runtime Console</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='runtime_console.css') }}">
+</head>
+<body>
+  <main class="layout">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Agent Runtime</p>
+        <h1>实时对战控制台</h1>
+        <p class="subtle">用于开局建会话、记录敌方关键事件、战况导入校准和查看当前推荐。</p>
+      </div>
+      <a class="ghost-link" href="/api/battle/start" onclick="return false;">API 模式</a>
+    </section>
+
+    <section class="grid two">
+      <article class="panel">
+        <h2>开局</h2>
+        <label>Session ID<input id="session-id" value="console-session"></label>
+        <label>我方队伍（逗号分隔）<input id="my-team" placeholder="火花,喵喵"></label>
+        <label>敌方队伍（逗号分隔）<input id="opponent-team" placeholder="喵呜,水蓝蓝"></label>
+        <div class="row">
+          <label>深度<input id="search-depth" type="number" min="1" value="2"></label>
+          <label>模式
+            <select id="inference-mode">
+              <option value="hybrid">hybrid</option>
+              <option value="pessimistic">pessimistic</option>
+              <option value="expected">expected</option>
+            </select>
+          </label>
+        </div>
+        <button id="start-session">开始会话</button>
+      </article>
+
+      <article class="panel status-panel">
+        <h2>当前战况</h2>
+        <div id="status-summary" class="status-summary empty">尚未载入会话</div>
+        <div id="recommendation" class="recommendation empty">暂无推荐</div>
+      </article>
+    </section>
+
+    <section class="grid three">
+      <article class="panel">
+        <h2>敌方技能</h2>
+        <label>敌方宠物<input id="enemy-skill-pet" placeholder="喵呜"></label>
+        <label>技能<input id="enemy-skill-name" placeholder="叫声"></label>
+        <button id="record-enemy-skill">记录敌方技能</button>
+      </article>
+
+      <article class="panel">
+        <h2>敌方换宠</h2>
+        <label>新出战宠物<input id="enemy-switch-pet" placeholder="水蓝蓝"></label>
+        <button id="record-enemy-switch">记录换宠</button>
+      </article>
+
+      <article class="panel">
+        <h2>敌方资源更新</h2>
+        <label>宠物<input id="enemy-resource-pet" placeholder="喵呜"></label>
+        <div class="row">
+          <label>HP%<input id="enemy-hp" type="number" min="0" max="100" placeholder="64"></label>
+          <label>能量<input id="enemy-energy" type="number" min="0" placeholder="5"></label>
+        </div>
+        <div class="row">
+          <button id="update-enemy-hp">更新 HP</button>
+          <button id="update-enemy-energy">更新能量</button>
+        </div>
+      </article>
+    </section>
+
+    <section class="grid two">
+      <article class="panel">
+        <h2>战况导入</h2>
+        <p class="hint">只校准敌方当前资源，不清空已记录技能和证据。</p>
+        <label>当前敌方出战<input id="import-active-pet" placeholder="喵呜"></label>
+        <div class="row">
+          <label>HP%<input id="import-hp" type="number" min="0" max="100" placeholder="64"></label>
+          <label>能量<input id="import-energy" type="number" min="0" placeholder="5"></label>
+        </div>
+        <label>备注<input id="import-note" placeholder="手动校准当前敌方战况"></label>
+        <div class="row">
+          <button id="import-state">导入并校准</button>
+          <button id="refresh-report" class="secondary">刷新报告</button>
+        </div>
+      </article>
+
+      <article class="panel">
+        <h2>危险操作</h2>
+        <p class="hint">清空会移除当前局累计事件和推断，但保留会话配置。</p>
+        <div class="row">
+          <button id="undo-last" class="secondary">撤销最后一步</button>
+          <button id="clear-events" class="danger">清空事件信息</button>
+        </div>
+        <label>导入批次撤回<input id="rollback-import-id" placeholder="imp_..."></label>
+        <button id="rollback-import" class="secondary">撤回导入批次</button>
+      </article>
+    </section>
+
+    <section class="grid two">
+      <article class="panel">
+        <div class="panel-head">
+          <h2>最近导入批次</h2>
+          <button id="refresh-imports" class="secondary">刷新</button>
+        </div>
+        <div id="imports-list" class="list empty">暂无导入批次</div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-head">
+          <h2>最近事件</h2>
+          <button id="refresh-events" class="secondary">刷新</button>
+        </div>
+        <div id="events-list" class="list empty">暂无事件</div>
+      </article>
+    </section>
+
+    <section class="panel log-panel">
+      <div class="panel-head">
+        <h2>操作日志</h2>
+        <button id="clear-log" class="secondary">清空日志</button>
+      </div>
+      <pre id="action-log" class="log-output"></pre>
+    </section>
+  </main>
+  <script src="{{ url_for('static', filename='runtime_console.js') }}"></script>
+</body>
+</html>
